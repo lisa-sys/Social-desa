@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  # Service Apache avec PHP
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: SocialDesaAcr.azurecr.io/social-desa-app:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - db
+
+  # Service MySQL
+  db:
+    image: mysql:8.0
+    container_name: db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: my_user
+      MYSQL_PASSWORD: my_password
+
+  # Service PHPMyAdmin (Optionnel - pour la gestion de la base de données)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - '8080:80'
+    depends_on:
+      - db
