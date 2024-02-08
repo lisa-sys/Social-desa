@@ -12,7 +12,7 @@ RUN a2enmod rewrite
 RUN docker-php-ext-install mysqli gd zip
 
 # Copier le contenu de votre application dans le conteneur
-COPY ./app /var/www/html
+COPY . /var/www/html
 
 # Ajouter la commande pour changer les permissions des répertoires
 RUN chmod -R 777 /var/www/html/content/uploads /var/www/html/content/themes/default/templates_compiled /var/www/html/includes
