@@ -19,8 +19,8 @@ services:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: "desasocial"
-      MYSQL_USER: "root"
-      MYSQL_PASSWORD: "root_password"
+      MYSQL_USER: "toor"
+      MYSQL_PASSWORD: "12ABCmin!"
     volumes:
       - db-data:/var/lib/mysql
     networks:
