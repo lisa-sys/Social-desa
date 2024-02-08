@@ -4,7 +4,7 @@
     define("DB_PASSWORD", 'root_password');
     define("DB_HOST", 'db');
     define("DB_PORT", '3306');
-    define("SYS_URL", 'http://localhost');
+    define("SYS_URL", 'app-social-desa.azurewebsites.net');
     define("DEBUGGING", false);
     define("DEFAULT_LOCALE", 'en_us');
     define("LICENCE_KEY", 'JE-SUIS-TROP-FORT');
