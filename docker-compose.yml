@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  # Service App
+  app-social-desa:
+    container_name: app-social-desa
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    
+
+  # Service MySQL
+  db:
+    image: mysql:8.0
+    container_name: db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: "desasocial"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "root_password"
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  db-data:
+    driver: local
+
+
+
